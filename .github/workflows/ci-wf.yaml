@@ -1,0 +1,22 @@
+name: ci-workflow
+on:
+  push:
+    branches:
+      - develop
+  pull_request:
+    branches:
+      - develop
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Welcome Step
+        run: echo "Hi Happy New Year"
+      - name: Checkout Repository
+        uses: actions/checkout/@v4
+      - name: Repo Info
+        run: |
+          echo "Repository Name : ${{github.repository}}"
+          echo "Repository Owner : ${{github.event_name}}"
+
+  
